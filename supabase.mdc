@@ -1,0 +1,46 @@
+---
+description: Supabase Rules and Best Practices
+globs: packages/supabase/**
+---
+# Supabase Rules
+
+## Database Schema
+
+- Use plural names for tables (e.g., `users`, `posts`)
+- Include `created_at` and `updated_at` timestamps on all tables
+- Define foreign key relationships explicitly
+- Use appropriate column types
+
+```sql
+create table public.posts (
+    id uuid default gen_random_uuid() primary key,
+    title text not null,
+    user_id uuid references public.users(id), 
+    created_at timestamptz default now(), 
+    updated_at timestamptz default now()
+);
+```
+
+## Row Level Security (RLS)
+
+- Enable RLS on all tables
+- Write specific policies for each operation
+- Use authenticated user's ID from `auth.uid()`
+
+## Client Usage
+
+- Use strongly typed queries with TypeScript
+- Handle errors appropriately
+- Use single-record queries when possible
+
+## Error Handling
+
+- Use type-safe error handling
+- Provide meaningful error messages
+- Log errors appropriately
+
+## Functions and Hooks
+
+- Create reusable database functions
+- Use custom hooks for common operations
+- Implement proper error boundaries

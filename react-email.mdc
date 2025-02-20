@@ -1,0 +1,32 @@
+---
+description: Rules and best practices for React Email components and templates
+globs: ["**/emails/**/*.tsx", "**/email-templates/**/*.tsx"]
+---
+# React Email Development Rules
+
+## Component Structure
+
+- Each email template should be a standalone component
+- Use semantic HTML elements appropriate for email clients
+- Keep components simple and focused on a single responsibility
+- Export components as default exports for better compatibility
+
+## Styling Guidelines
+
+- Use inline styles instead of external stylesheets
+- Avoid CSS-in-JS solutions as they may not work in email clients
+- Use table-based layouts for better email client compatibility
+- Define all colors as hex values for maximum compatibility
+- Use pixel values for dimensions and spacing
+- Avoid using margin (use padding instead)
+- Use HTML attributes for alignment (align="center") instead of CSS
+
+## Best Practices
+
+- Test templates across multiple email clients (Gmail, Outlook, Apple Mail)
+- Use width constraints (max 600px is standard)
+- Include proper alt text for all images
+- Maintain mobile responsiveness
+- Use HTML tables for layout structure
+- Keep images hosted on a CDN with permanent URLS
+- Include plaintext fallback content
